@@ -1,0 +1,41 @@
+@(widgets: Seq[Widget], form: Form[WidgetForm.Data], postUrl: Call)(implicit request: MessagesRequestHeader)
+
+  @main("Widgets") {
+
+    <h3> Shows number of events in the last 't' (max = 300 seconds) from current time</h3>
+
+    @helper.form(postUrl) {
+      @helper.CSRF.formField
+      @helper.inputText(field=form("time"), args = 'size -> 10, 'value -> 1, 'placeholder -> "t (seconds)", '_showConstraints -> false, '_showErrors -> false)
+      <button>Get Count</button>
+    }
+    <br/>
+    <hr/>
+    <br/>
+
+    <table>
+      <thead>
+        <tr><th>Time</th><th>Count</th>
+      </thead>
+      <tbody>
+      @for(w <- widgets) {
+        <tr><td>@w.time</td><td>@w.eventcount</td></tr>
+      }
+      </tbody>
+    </table>
+
+    <hr/>
+
+    @* Global errors are not tied to any particular form field *@
+    @if(form.hasGlobalErrors) {
+      @form.globalErrors.map { error: FormError =>
+        <div>
+          @error.key: @error.message
+        </div>
+      }
+    }
+
+
+
+
+  }
