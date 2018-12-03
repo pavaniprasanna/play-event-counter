@@ -88,9 +88,8 @@ public class EventCounter {
     timeDelay = (currentTime - previousTime)/1000;
 
     // Accumulate events within a second
-    if (timeDelay <= 1) {
+    if (timeDelay < 1) {
       list.add(list.pollLast() + 1);
-      previousTime = currentTime;
       return;
     }
 
