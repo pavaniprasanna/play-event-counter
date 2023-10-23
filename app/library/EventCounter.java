@@ -4,8 +4,7 @@
  * Stores fresh event counts as a function of time for a maximum of MAX_TIME seconds.
  * Returns fresh event counts that occurred within a user specified time from current time.
  *
- * @author Prasanna Pavani <pavaniprasanna@gmail.com>
- * @date 11/29/2018
+ * @author Prasanna Pavani <pavani@prashub.com>
 */
 
 package library;
