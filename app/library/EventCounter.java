@@ -102,4 +102,5 @@ public class EventCounter {
 
     previousTime = currentTime;
   }
+  
 }
