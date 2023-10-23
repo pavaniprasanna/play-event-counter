@@ -102,33 +102,4 @@ public class EventCounter {
 
     previousTime = currentTime;
   }
-
-  /**
-   * Unit test Case
-   */
-  private void addevents() {
-
-    try{
-        for (int x = 1; x <= 1200000; x++) {
-          add();
-        }
-
-        for (int x = 1; x <= 2; x++) {
-          TimeUnit.SECONDS.sleep(2);
-          add();
-        }
-
-        }
-        catch (InterruptedException e) {
-        }
-    }
-
-    /**
-     * Main method to test library
-     */
-    public static void main(String[] args) {
-          EventCounter EC = new EventCounter();
-          EC.addevents();
-          System.out.println(EC.count(MAX_TIME));
-      }
 }
